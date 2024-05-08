@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "dcb9a90b-9f8f-48e6-aba0-0c1a479d4d74",
+		"name": "Qualgo_Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "10570642"
+	},
+	"item": [
+		{
+			"name": "Api register account",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userName\": \"user_1\",\n    \"passWord\": \"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/register"
+			},
+			"response": []
+		},
+		{
+			"name": "Api login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userName\": \"test\",\n    \"passWord\": \"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/login"
+			},
+			"response": []
+		},
+		{
+			"name": "Api getListMessageByUser",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0IiwiaWF0IjoxNzE1MTU1OTU0LCJleHAiOjE3MTUxNTg5NTR9.dHiOGqg1xsrHdkZi4f_B8J3_WzSjcRXYkO177_-9lFc"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/get-message-by-user"
+			},
+			"response": []
+		},
+		{
+			"name": "Api sendMessage",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyXzEiLCJpYXQiOjE3MTUxNTE5ODQsImV4cCI6MTcxNTE1NDk4NH0.-3kJRk_8hf3HYtSgYfCBkdKPlYOc4WPm8d3PHRIX-9Q"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"content\": \"Xin chao ban\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/send-message"
+			},
+			"response": []
+		},
+		{
+			"name": "Api getAllMessageInRoom",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0IiwiaWF0IjoxNzE1MTU1OTU0LCJleHAiOjE3MTUxNTg5NTR9.dHiOGqg1xsrHdkZi4f_B8J3_WzSjcRXYkO177_-9lFc"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/get-all-message-in-room"
+			},
+			"response": []
+		},
+		{
+			"name": "Api delete message",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyXzEiLCJpYXQiOjE3MTUxNTE5ODQsImV4cCI6MTcxNTE1NDk4NH0.-3kJRk_8hf3HYtSgYfCBkdKPlYOc4WPm8d3PHRIX-9Q"
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": "localhost:8080/delete-message/3"
+			},
+			"response": []
+		}
+	]
+}
