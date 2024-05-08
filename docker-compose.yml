@@ -1,0 +1,40 @@
+version: "3"
+
+networks:
+  chat-network:
+    driver: bridge
+volumes:
+  db_data:
+
+services:
+  mysql-database:
+    image: mysql:8.0
+    cap_add:
+      - SYS_NICE
+    restart: always
+    container_name: c-mysql
+    environment:
+      - MYSQL_DATABASE=qualgo_chat
+      - MYSQL_ROOT_PASSWORD=admin123
+      - MYSQL_USER=user123
+      - MYSQL_PASSWORD=user123
+    ports:
+      - '3306:3306'
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./db/script_init_db.sql:/docker-entrypoint-initdb.d/script_init_db.sql
+    networks:
+      - chat-network
+  app-chat:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    container_name: c-app-chat
+    hostname: app-chat
+    depends_on:
+      - mysql-database
+    restart: always
+    ports:
+      - "8080:8080"
+    networks:
+      - chat-network
